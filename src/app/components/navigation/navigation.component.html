@@ -1,0 +1,38 @@
+<header>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">网站LOGO</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a [routerLink]="['/home']">主页</a></li>
+          <li><a [routerLink]="['/about']">关于</a></li>
+          <li><a [routerLink]="['/contact']">联系方式</a></li>
+          <li><a [routerLink]="['/users']">用户列表</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+  
+          <li *ngIf="authService.isLoggedIn()"> <a  class="dropdown-toggle glyphicon glyphicon-user"
+                   data-toggle="dropdown"> Hi {{authService.getUser()}}<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li> <a [routerLink]="['/']" class="active">更改密码</a></li>
+              <li> <a [routerLink]="['/profile']" class="active">我的信息</a></li>
+              <li> <a [routerLink]="['/']" class="active">我的博客</a></li>
+              <li id="signout"> <a (click)="authService.logout()" class="active"><span class="glyphicon glyphicon-log-out">&nbsp;</span>退出</a></li>
+            </ul>
+          </li>
+          
+          <li *ngIf="!authService.isLoggedIn()"><a href="" data-toggle="modal" data-target="#signin">登录</a></li>
+          <li *ngIf="!authService.isLoggedIn()"><a href="" data-toggle="modal" data-target="#signup">注册</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

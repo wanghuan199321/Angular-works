@@ -1,0 +1,98 @@
+<p>
+  profile works!
+</p>
+
+<section class="content">
+  <div *ngIf="pictureUrl">
+    <img  class="headPortrait"
+          src="{{pictureUrl}}">
+  </div>
+  <div *ngIf="!pictureUrl">你还没有头像，请上传一张头像</div>
+  <app-upload-file></app-upload-file>
+  <div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">请完善个人信息</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="profileForm"
+          (ngSubmit)="doSubmit(profileForm.value)" class="form-horizontal">
+      <div class="form-group">
+        <label for="realName" class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-10">
+          <input type="text" name="realName" class="form-control"
+                 id="realName" placeholder="请输入真实姓名"
+                 [formControl]="profileForm.controls['realName']">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nickName" class="col-sm-2 control-label">昵称</label>
+        <div class="col-sm-10">
+          <input type="text" name="nickName"
+                 class="form-control" id="nickName"
+                 placeholder="请输入昵称"
+                 [formControl]="profileForm.controls['nickName']">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">性别</label>
+        <div class="col-sm-10">
+          <input type="radio"
+                 value="1"
+                 #male
+                 checked={{isMale}}
+                 (change)="getGender(male.value)"
+                 name="gender"/>男&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio"
+                 value="0"
+                 checked={{isFemale}}
+                 #female
+                 (change)="getGender(female.value)"
+                 name="gender"/>女
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">手机号码</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 id="profilePhone"
+                 readonly
+                 name="phone"
+                 [formControl]="profileForm.controls['phone']"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">email</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 id="profileEmail"
+                 name="email"
+                 [formControl]="profileForm.controls['email']"/>
+          <div *ngIf="!profileForm.controls['email'].valid"
+               class="alert alert-danger">Email格式不正确！</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">年龄</label>
+        <div class="col-sm-10">
+          <input type="number" name="age" class="form-control"
+                 id="age" placeholder="请输入年龄"
+                 [formControl]="profileForm.controls['age']">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address" class="col-sm-2 control-label">地址</label>
+        <div class="col-sm-10">
+          <input type="text" name="address" class="form-control"
+                 id="address" placeholder="请输入通讯地址"
+                 [formControl]="profileForm.controls['address']">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-primary">修改</button>
+      </div>
+    </form>
+  </div>
+</section>

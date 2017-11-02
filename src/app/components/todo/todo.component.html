@@ -1,0 +1,28 @@
+<p>
+  {{title}}
+</p>
+<form>
+  <label for="">添加待办事项:</label>
+  <input #newtodo type="text">
+  <button (click)="addTodo(newtodo.value); newtodo.value='' " type="button">添加</button>
+</form>
+
+<ul>
+  <li *ngFor="let todo of todos;let index = index" >
+    <span  [ngClass]="{completed: todo.completed}" > {{todo.text}} </span>
+    <span *ngIf="todo.completed"> 已完成</span>
+    <button (click)="remove(index)" value="">删除</button>
+  </li>
+</ul>
+<hr>
+<h4>this is choice {{choice}}</h4>
+<ul [ngSwitch]="choice">
+  <li *ngSwitchCase="1">First choice</li>
+  <li *ngSwitchCase="2">Second choice</li>
+  <li *ngSwitchCase="3">Third choice</li>
+  <li *ngSwitchDefault>Default choice</li>
+</ul>
+<button type="button" (click)="nextChoice()">下一个</button>
+
+
+
