@@ -49,10 +49,8 @@ export class UploadFileComponent implements OnInit {
       options.method = 'POST';
       let formData:FormData = new FormData();
       formData.append('photo', file, file.name);
-      alert(this.authService.apiUrl+url);
       this.http.post(this.authService.apiUrl+url, formData, options)
         .subscribe((res: Response) => {
-          alert(res.json().url);
           this.imgsrc=this.authService.remotUrl+res.json().url;
         });
     }

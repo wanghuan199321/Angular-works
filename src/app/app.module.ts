@@ -29,6 +29,9 @@ import { HttpModule } from '@angular/http';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { RedBgDirective } from './directive/red-bg.directive';
+import { TestComponent } from './components/test/test.component';
+import { StrucDirectiveDirective } from './directive/struc-directive.directive';
 
 /*
 * 注解/标注/装饰/修饰器/宏定义
@@ -50,6 +53,9 @@ import { UploadFileComponent } from './components/upload-file/upload-file.compon
     UsersListComponent,
     ProfileComponent,
     UploadFileComponent,
+    RedBgDirective,
+    TestComponent,
+    StrucDirectiveDirective
   ],
   imports: [
     BrowserModule,

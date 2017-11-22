@@ -9,6 +9,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component"
 import { UsersListComponent } from "./components/users-list/users-list.component";
 import { ProfileComponent } from "./components/profile/profile.component";
+import {TestComponent} from "./components/test/test.component";
 
 const AppRoutes: Routes = [
   {path:'', redirectTo: 'home', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const AppRoutes: Routes = [
   {path: 'todo', component: TodoComponent},
   {path: 'users', component: UsersListComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'test', component: TestComponent},
   {path: '**', component: NotFoundComponent }
 ];
 

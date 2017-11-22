@@ -1,0 +1,42 @@
+<h1>自定义属性指令</h1>
+<h5 appRedBg> 红色背景色====你好</h5>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<h5 [appRedBg]="color"> ====选择上面的颜色改变背景色=====你好</h5>
+
+<hr/>
+<h1>自定义结构指令</h1>
+<p>
+  当前条件
+  <span [ngClass]="{ a: !condition, b: condition, unless: true }">{{condition}}</span>.
+  <button
+    (click)="condition = !condition"
+    [ngClass] = "{ a: condition, b: !condition }" >
+    改变条件 {{condition ? 'false' : 'true'}}
+  </button>
+</p>
+<p *appStrucDirective="condition" class="unless a">
+  (A) 这段的条件是 false.
+</p>
+
+<p *appStrucDirective="!condition" class="unless b">
+  (B) 这段的条件是 true,
+  因unless被设为 false.
+</p>
+
+<dl>
+  <div *ngFor="let user of users">
+    <dt>姓名：</dt>
+    <dd>{{user.loginname}}</dd>
+    <dt>姓名：</dt>
+    <dd>{{user.email}}</dd>
+    <dt>姓名：</dt>
+    <dd>{{user.age}}</dd>
+    <dt>姓名：</dt>
+    <dd>{{user.phone}}</dd>
+  </div>
+</dl>
+<hr/>

@@ -18,7 +18,6 @@
           <li><a [routerLink]="['/users']">用户列表</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-  
           <li *ngIf="authService.isLoggedIn()"> <a  class="dropdown-toggle glyphicon glyphicon-user"
                    data-toggle="dropdown"> Hi {{authService.getUser()}}<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">

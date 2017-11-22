@@ -32,7 +32,6 @@ export class SignUpComponent implements OnInit {
   doSubmit(formData: any, obj: any){
     let {phone,pwd,pwd2,captcha} = formData;
     let strData = `phone=${phone}&pwd=${pwd}&pwd2=${pwd2}&captcha=${captcha}`;
-
     this.makePost(strData,obj);
   }
 

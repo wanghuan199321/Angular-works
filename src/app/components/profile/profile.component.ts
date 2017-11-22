@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   isMale: string;
   gender: any;
   pictureUrl: string;
+
   //构造函数
   constructor(private fb: FormBuilder, private authService :AuthService, private http: Http) {
     this.isFemale = '';
@@ -102,6 +103,7 @@ export class ProfileComponent implements OnInit {
         }
         if(parseInt(res.json().code)==1){
           alert("修改成功");
+          this.ngOnInit();
         }
         // window.location.href = '/profile';
         // this.loading = false;
